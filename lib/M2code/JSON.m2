@@ -179,7 +179,7 @@ parseJSONObject(String, ZZ) := (str, startLoc) -> (
     (null, errorObject("expected terminating '}' for json object starting at location "|startLoc), i)
     )
 
-{*
+-*
   parseJSON ///{"a":"b"}///
   parseJSON ///{"a":   "b"}///
   parseJSON ///{"a":   "b",    "c3d4"  :  [2,3,4] }///
@@ -199,12 +199,12 @@ parseJSONObject(String, ZZ) := (str, startLoc) -> (
 
   str = ///{"a":"b" ,"c3d4":[2,3,4]     ///
   parseJSON str
-*}
+*-
 
 TEST ///
-{*
+-*
   restart
-  *}
+*-
   debug needsPackage "JSON"
 
   assert(skipWS(" hi there",0) == 1)
@@ -294,9 +294,9 @@ ppJSON(HashTable, ZZ) := (H, nindent) -> (
     )
 
 TEST ///
-{*
+-*
   restart
-*}
+*-
   debug needsPackage "JSON"
 
   H = [3, 4, "hi there", 6]

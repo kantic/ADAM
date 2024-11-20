@@ -619,7 +619,7 @@ if ( $anaysis_method eq "Conjunctive" ) {
   system("ruby conjunctiveNetwork.rb $n_nodes $p_value $dpGraph.dot");
 }
 elsif ( $anaysis_method eq "Algorithms" ) {
-  $limCyc_length = 1;
+  $limCyc_length = 6;
   if ( ( ! defined $limCyc_length ) || ( $limCyc_length eq "" ) ) {
     print
       "<font color=red>Please enter a length of the limit cycle you wish to compute. Enter 1 for fixed points</font>";

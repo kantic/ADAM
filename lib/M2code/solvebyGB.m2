@@ -15,7 +15,7 @@ newPackage(
 --needsPackage "FP"
 --needsPackage "gbHelper"
 
-export{gbSolver, modifyOutput, sortOutput, gbTable}
+export{"gbSolver", "modifyOutput", "sortOutput", "gbTable"}
 
 exportMutable {}
 

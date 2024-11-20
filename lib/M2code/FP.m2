@@ -3,16 +3,13 @@ newPackage(
     "FP",
     Version => "0.1",
     Date => "May 10, 2010",
-    Authors => {{Name => "Alan Veliz-Cuba"},
-      {Name => "Maintained by Franziska Hinkelmann",
-      Email => "fhinkel@vt.edu",
-      HomePage => "http://www.math.vt.edu/people/fhinkel/"}},
+    Authors => {{Name => "Alan Veliz-Cuba"}},
     Headline => "Calculate Fixed Points",
     DebuggingMode => true
     )
 
 
-export{GBFP,GBFP0,SUB,bf1,bf12,bf2,BF12,T1,T2,T3,T4}
+export{"GBFP","GBFP0","SUB","bf1","bf12","bf2","BF12","T1","T2","T3","T4"}
 
 --This method computes the groebner basis of an ideal and solves the new system
 GBFP=method();
@@ -350,3 +347,10 @@ POLY = {3*x,2*y,2* z}
 POLY = {2*x, 3*x,2*y,2* z}
 L = {1,1,1}
 
+beginDocumentation()
+document{
+    Key => FP,
+    Contributors => {{Name => "Maintained by Franziska Hinkelmann",
+      Email => "fhinkel@vt.edu",
+      HomePage => "http://www.math.vt.edu/people/fhinkel/"}}
+}

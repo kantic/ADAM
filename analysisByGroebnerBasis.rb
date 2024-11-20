@@ -1,7 +1,7 @@
 #analysisByGroebnerBasis.rb $n_nodes $p_value $filename $limCyc_length
 
 require './partial_input'
-require 'FileUtils'
+require 'fileutils'
 require 'pp'
 require 'json'
 

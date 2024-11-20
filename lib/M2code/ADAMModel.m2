@@ -110,9 +110,10 @@ parseModel String := (str) -> (
     if instance(M, ErrorPacket) then return M;
     if not M#?"model" then return errorPacket "internal error: input is not a Model ot ErrorPacket";
     mod := M#"model";
-    model(mod#"name", 
-        "description" => mod#"description",
-        "version" => mod#"version",
+    -- print mod;
+    model(if mod#?"name" then mod#"name" else "Model", 
+        "description" => if mod#?"description" then mod#"description" else "",
+        "version" => if mod#?"version" then mod#"version" else "",
         "variables" => mod#"variables",
         "parameters" => if mod#?"parameters" then mod#"parameters" else {},
         "updateRules" => mod#"updateRules"
@@ -275,7 +276,7 @@ removeUpdate(Model, String) := (M,str) -> (
     changeUpdate(M, newrules)
     )
 
-{*
+-*
 --L = {"x3", "x1"}
 --p = 2
 --vals = {0,1,0,1}
@@ -296,12 +297,12 @@ interpolate (List, ZZ, List) := (L, p, vals) -> (
   pol := sum ( inputs, vals, (source, t) -> t* product( source, gens QR, (i, xi) -> 1 - (xi-i)^(p-1) ) );
   print toString pol
 )
-*}
+*-
 
 TEST ///
-{*
+-*
   restart
-*}
+*-
   needsPackage "ADAMModel"
   needsPackage "JSON"
 
@@ -371,9 +372,9 @@ TEST ///
     ///
    
 TEST ///
-{*
+-*
   restart
-*}
+*-
   debug needsPackage "ADAMModel"
   M = parseModel sample2
   M = addPolynomials M
