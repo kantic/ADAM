@@ -1,4 +1,4 @@
-#!/usr/bin/env M2 --script
+#!/usr/bin/M2 --script
 
 path = prepend(currentDirectory()|"lib/M2code", path)
 needsPackage "ADAMModel"
@@ -83,8 +83,8 @@ if not fileExists fileName then (
 --------------------------------
 
 M = parseModel get fileName
-resultLimitCycles = findLimitCycles(M,{},limitCycleLengths)
-print toJSON toHashTable {"output" => {"limitcycles" => resultLimitCycles}}
+resultLimitCycles = timing findLimitCycles(M,{},limitCycleLengths)
+print toJSON toHashTable {"output" => {"limitcycles" => resultLimitCycles#1}, "time" => toString(resultLimitCycles#0)}
 
 end
 
